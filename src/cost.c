@@ -6,7 +6,7 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 21:26:51 by ensebast          #+#    #+#             */
-/*   Updated: 2022/02/17 15:05:01 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/19 00:03:14 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ int	cost_down(t_stack *a, int ceiling)
 }
 
 // Operation calculation, that returns the structure t_op passed to him
-// after populating it
+// after giving the necessary data
 t_op	*cost(t_op *op_info, int down, int top)
 {
 	int	up;
 
+	up = top - down;
 	down += 1;
-	up = top - down + 1;
 	if (down < up)
 	{
 		op_info -> op = DOWN;
@@ -72,8 +72,8 @@ int	op_cost(int down, int top)
 {
 	int	up;
 
+	up = top - down;
 	down += 1;
-	up = top - down + 1;
 	if (down < up)
 		return (down);
 	else

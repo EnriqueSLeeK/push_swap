@@ -6,12 +6,14 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 14:54:58 by ensebast          #+#    #+#             */
-/*   Updated: 2022/02/17 15:33:58 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/19 00:04:46 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Used to wrap around the index to emulate a
+// cyclic motion
 int	index_adjust(int i, int top)
 {
 	if (i > -1 && i <= top)
@@ -22,6 +24,7 @@ int	index_adjust(int i, int top)
 		return (0);
 }
 
+// Check if the stack it's ok
 int	check_stack_c(t_stack *stack)
 {
 	int	return_index;

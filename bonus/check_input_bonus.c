@@ -6,7 +6,7 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 14:11:22 by ensebast          #+#    #+#             */
-/*   Updated: 2022/02/17 17:42:30 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/28 01:18:41 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	check_input(char **arg)
 {
 	while (*arg)
 	{
-		if (check_str(*arg))
+		if (check_str(*arg) || **arg == 0)
 			error_exit("Error", 2);
 		arg += 1;
 	}

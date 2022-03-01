@@ -6,13 +6,12 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 14:03:04 by ensebast          #+#    #+#             */
-/*   Updated: 2022/02/18 11:20:36 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/28 15:13:04 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 #include <unistd.h>
-#include "stdio.h"
 
 static char	*get_op(void)
 {
@@ -21,21 +20,21 @@ static char	*get_op(void)
 
 	buff = ft_calloc(6, sizeof(char));
 	i = read(0, buff, 1);
-	while (i == 0 || buff[i - 1] != '\n')
+	while (i != 0 && buff[i - 1] != '\n')
 	{
 		i += read(0, buff + i, 1);
-		if (i == 0)
-		{
-			free(buff);
-			buff = 0;
-			break ;
-		}
+	}
+	if (i == 0)
+	{
+		free(buff);
+		buff = 0;
 	}
 	return (buff);
 }
 
-static void	unkown_action(t_stack *a, t_stack *b)
+static void	unkown_action(char *op, t_stack *a, t_stack *b)
 {
+	free(op);
 	free(a -> stack);
 	free(b -> stack);
 	error_exit("Error", 2);
@@ -66,7 +65,7 @@ static void	execute(char *op, t_stack *a, t_stack *b, unsigned int len)
 	else if (ft_strncmp("pa", op, len) == 0)
 		push(b, a);
 	else
-		unkown_action(a, b);
+		unkown_action(op, a, b);
 }
 
 static int	action(t_stack *a, t_stack *b)

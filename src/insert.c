@@ -6,7 +6,7 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 19:49:32 by ensebast          #+#    #+#             */
-/*   Updated: 2022/02/17 21:56:50 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/18 23:54:54 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	simple_insert(t_op *info_op_a, t_stack *a, t_stack *b)
 	{
 		if (b -> stack[b -> top] < min)
 		{
+			align(cost(info_op_a, find(a, min), a -> top), a, "ra");
 			min = b -> stack[b -> top];
-			align(cost(info_op_a, find(a, get_min(a)), a -> top), a, "ra");
 		}
 		else if (b -> stack[b -> top] > max)
 		{
+			align(cost(info_op_a, find(a, min), a -> top), a, "ra");
 			max = b -> stack[b -> top];
-			align(cost(info_op_a, find(a, get_min(a)), a -> top), a, "ra");
 		}
 		else
 			align(cost(info_op_a, find_nearest(a, b -> stack[b -> top]),

@@ -6,7 +6,7 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 14:11:22 by ensebast          #+#    #+#             */
-/*   Updated: 2021/12/27 18:26:33 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/28 00:37:24 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static int	check_str(char *str)
 	flag = 0;
 	str_split = ft_split(str, ' ');
 	if (str_split == 0)
-		error_exit("Malloc failed", 2);
+		error_exit("", 2);
 	while (str_split[i])
 	{
 		flag = check_segment(str_split);
@@ -97,7 +97,7 @@ void	check_input(char **arg)
 {
 	while (*arg)
 	{
-		if (check_str(*arg))
+		if (check_str(*arg) || **arg == 0)
 			error_exit("Error", 2);
 		arg += 1;
 	}

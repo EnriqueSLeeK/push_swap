@@ -6,7 +6,7 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 00:54:03 by ensebast          #+#    #+#             */
-/*   Updated: 2022/02/17 21:59:44 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/18 23:54:40 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void	medium_sort(t_op *info_op_a,
 	while (a -> top > 2)
 		push(a, b, "pb");
 	simple_sort(a);
+	align(cost(info_op_a, find(a, get_min(a)), a -> top), a, "ra");
 	simple_insert(info_op_a, a, b);
 }
 

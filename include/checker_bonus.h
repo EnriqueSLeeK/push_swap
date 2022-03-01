@@ -6,7 +6,7 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:13:21 by ensebast          #+#    #+#             */
-/*   Updated: 2022/02/17 22:54:01 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/28 01:14:58 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int		super_rotate_up(t_stack *stack_one, t_stack *stack_two);
 
 int		swap(t_stack *stack);
 int		super_swap(t_stack *stack_one, t_stack *stack_two);
+
+int		check_sign(char **num_str, int num, int *len);
 
 void	error_exit(char *msg, int code);
 

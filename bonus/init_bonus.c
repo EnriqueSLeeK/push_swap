@@ -6,14 +6,11 @@
 /*   By: ensebast <ensebast@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 14:38:22 by ensebast          #+#    #+#             */
-/*   Updated: 2022/02/17 18:58:15 by ensebast         ###   ########.br       */
+/*   Updated: 2022/02/28 01:17:36 by ensebast         ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-
-// Note: This file contains functions to create the stack,
-// duplicate elem checking and integer parsing
 
 static void	init_size_top(t_stack *a, t_stack *b, int argc);
 static int	check_overflow(t_stack *a, char **arg);
@@ -73,11 +70,11 @@ static int	check_overflow(t_stack *a, char **arg)
 		k = 0;
 		len = ft_strlen(arg[i]);
 		tmp = a -> stack[a -> top - i];
+		if (check_sign(&arg[i], tmp, &len))
+			return (1);
 		while ((len - 1 - k) >= 0)
 		{
-			if (arg[i][len - 1 - k] == '-' && tmp <= 0)
-				;
-			else if (tmp >= 0 && tmp % 10 != arg[i][len - 1 - k] - '0')
+			if (tmp >= 0 && tmp % 10 != arg[i][len - 1 - k] - '0')
 				return (1);
 			else if (tmp <= 0 && -1 * (tmp % 10) != arg[i][len - 1 - k] - '0')
 				return (1);
