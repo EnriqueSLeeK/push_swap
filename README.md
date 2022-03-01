@@ -48,7 +48,7 @@ Or
 op_1
 op_2
 ```
-- Press CTRL + d to stop reading
+- Press `CTRL + d` to stop reading
 - It will not accept argument with mixed format such as `n_1 n_2 "n_3 n_4" n_5`
 
 ## For more information
